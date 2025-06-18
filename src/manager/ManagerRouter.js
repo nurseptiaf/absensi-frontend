@@ -1,11 +1,10 @@
-// ManagerRouter.js
 import React from "react";
 import { Navigate } from "react-router-dom";
 
 export default function ManagerRoute({ children }) {
-  const user = JSON.parse(localStorage.getItem("user"));
+  const role = localStorage.getItem("role"); // baca langsung
 
-  if (!user || user.role !== "manajer") {
+  if (role !== "manajer") {
     return <Navigate to="/" replace />;
   }
 
