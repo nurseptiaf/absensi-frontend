@@ -10,17 +10,17 @@ export default function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("https://absensi-backend-production-a2fe.up.railway.app/api/auth/login", {
-        username,
-        password,
-      });
+      const response = await axios.post(
+        "https://absensi-backend-production-a2fe.up.railway.app/api/auth/login",
+        { username, password }
+      );
 
       console.log("LOGIN →", response.data);
 
-      const { token, role, username: user } = response.data;
+      const { token, role, username: userName } = response.data;
 
       localStorage.setItem("token", token);
-      localStorage.setItem("username", user);
+      localStorage.setItem("username", userName);
       localStorage.setItem("role", role);
 
       if (role === "manajer") {
@@ -29,6 +29,7 @@ export default function Login() {
         navigate("/dashboard");
       }
     } catch (err) {
+      console.error(err);
       alert("Login gagal. Periksa kembali username dan password.");
     }
   };
@@ -37,7 +38,8 @@ export default function Login() {
     <div className="flex justify-center items-center min-h-screen bg-gradient-to-r from-blue-100 to-blue-200">
       <div className="bg-white p-8 rounded-xl shadow-md w-full max-w-md">
         <div className="text-center mb-6">
-          <h1 className="text-3xl font-bold bg-gradient-to-r from-white to-yellow-200 bg-clip-text text-transparent">
+          {/* YukAbsen dengan gradient lebih gelap agar kontras */}
+          <h1 className="text-3xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 bg-clip-text text-transparent">
             YukAbsen
           </h1>
           <p className="text-gray-500 text-sm mt-1">
