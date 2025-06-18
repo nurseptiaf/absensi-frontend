@@ -15,7 +15,8 @@ export default function Login() {
         password,
       });
 
-      const { token, role, username: user } = response.data;
+      const { token, user } = response.data;
+const { role, username: userName } = user;
 
       localStorage.setItem("token", token);
       localStorage.setItem("username", user);
