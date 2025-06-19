@@ -153,18 +153,6 @@ export default function Reimbursement() {
                   onChange={(e) => setDescription(e.target.value)}
                   required
                 ></textarea>
-              </div>
-              <div className="mb-4">
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Dokumen Pendukung
-                </label>
-                <input
-                  type="file"
-                  className="w-full"
-                  accept="image/*"
-                  onChange={(e) => setFile(e.target.files[0])}
-                />
-              </div>
               <button
                 type="submit"
                 className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
